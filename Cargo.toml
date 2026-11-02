@@ -1,0 +1,23 @@
+[package]
+name = "yant"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "YANT — yet another networking tool"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+iced = { version = "0.14", features = ["canvas", "tokio"] }
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+reqwest = { version = "0.13", features = ["stream", "json"] }
+serde = { version = "1", features = ["derive"] }
+network-interface = "2"
+hickory-resolver = { version = "0.26", features = ["tokio"] }
+dns-lookup = "4"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = true
